@@ -2,6 +2,8 @@ import pygame
 from pygame.locals import *
 import os
 from rocket_01 import Rocket_01
+from planet_01 import Planet_01
+
 
 
 class Game:
@@ -12,6 +14,7 @@ class Game:
         self.bg = pygame.image.load(os.path.join('assets', 'Backgrounds', 'space_bg.jpg'))
         self.bg = pygame.transform.scale(self.bg, (self.width, self.height))
         self.rockets = [Rocket_01()]
+        self.planets = [Planet_01()]
 
     def run(self):
         run = True
@@ -31,6 +34,10 @@ class Game:
         # Draw rockets
         for r in self.rockets:
             r.draw(self.window)
+
+        # Draw planets
+        for p in self.planets:
+            p.draw(self.window)
 
         pygame.display.update()
 

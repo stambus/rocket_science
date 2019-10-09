@@ -22,6 +22,7 @@ class Rocket:
         :return:
         """
 
+
     def draw(self, window):
         """
         Draws rocket with an image

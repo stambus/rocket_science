@@ -7,8 +7,8 @@ class Rocket:
     imgs = []
 
     def __init__(self):
-        self.x = 10
-        self.y = 10
+        self.x = 0
+        self.y = 0
         self.fuel = 100
         self.weight = 10000
         self.speed = 3

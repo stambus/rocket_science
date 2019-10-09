@@ -8,10 +8,11 @@ class Planet:
     imgs = []
 
     def __init__(self):
-        self.img = random.choice(self.imgs)
         self.radius = random.randrange(96, 96 * 2)
         self.x = random.randrange(self.radius + 50, 1000 - self.radius)
         self.y = random.randrange(self.radius + 50, 700 - self.radius)
+        self.selected = False
+        self.img = pygame.transform.scale(random.choice(self.imgs), (self.radius, self.radius))
 
     def draw(self, window):
         """
@@ -19,14 +20,14 @@ class Planet:
         :param window: surface
         :return: None
         """
-        self.img = pygame.transform.scale(self.img, (self.radius, self.radius))
         window.blit(self.img, (self.x, self.y))
 
-    def collide(self, X, Y):
+    def click(self, X, Y):
         """
-        Returns if position has hit an object (sky, ground)
-        :param X:
-        :param Y:
+        Returns if planet has been clicked on,
+        and selects it.
+        :param X: int
+        :param Y: int
         :return: Bool
         """
         if X <= self.x + self.radius and X >= self.x:

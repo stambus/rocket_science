@@ -31,13 +31,15 @@ class Game:
     def draw(self):
         self.window.blit(self.bg, (0, 0))
 
-        # Draw rockets
-        for r in self.rockets:
-            r.draw(self.window)
-
         # Draw planets
         for p in self.planets:
             p.draw(self.window)
+
+        # Draw rockets
+        for r in self.rockets:
+            r.x = p.x + p.radius/2 - r.width/2
+            r.y = p.y - r.height/2
+            r.draw(self.window)
 
         pygame.display.update()
 
